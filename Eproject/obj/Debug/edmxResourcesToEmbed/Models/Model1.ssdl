@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="myprojectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'myproject.dbo.brand' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="brand">
+    <Key>
+      <PropertyRef Name="Brand_Id" />
+      <PropertyRef Name="Brand_Name" />
+      <PropertyRef Name="Brand_Discription" />
+      <PropertyRef Name="Brand_Logo" />
+    </Key>
+    <Property Name="Brand_Id" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Brand_Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Brand_Discription" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Brand_Logo" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'myproject.dbo.cart' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="Cart_ID" />
+      <PropertyRef Name="Cart_Type" />
+      <PropertyRef Name="Product_ID" />
+      <PropertyRef Name="Product_Des" />
+      <PropertyRef Name="Date_Time" />
+      <PropertyRef Name="User_ID" />
+      <PropertyRef Name="Quantity" />
+    </Key>
+    <Property Name="Cart_ID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Cart_Type" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Product_ID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Product_Des" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Date_Time" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="User_ID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Quantity" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Des" Type="varchar" MaxLength="50" />
+    <Property Name="IsSubID" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'myproject.dbo.orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="Pro_ID" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="Cust_ID" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Date_Time" />
+    </Key>
+    <Property Name="Pro_ID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Quantity" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Cust_ID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Date_Time" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'myproject.dbo.product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Place" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="DateTime" />
+      <PropertyRef Name="Des" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Brand" Type="varchar" MaxLength="50" />
+    <Property Name="Place" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateTime" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Des" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'myproject.dbo.product_detail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="product_detail">
+    <Key>
+      <PropertyRef Name="PD_ID" />
+      <PropertyRef Name="Pro_ID" />
+      <PropertyRef Name="Detail_Type" />
+      <PropertyRef Name="PD_Name" />
+      <PropertyRef Name="PD_Value" />
+    </Key>
+    <Property Name="PD_ID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Pro_ID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Detail_Type" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="PD_Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="PD_Value" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'myproject.dbo.shop_vendor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="shop_vendor">
+    <Key>
+      <PropertyRef Name="Shop_Id" />
+      <PropertyRef Name="Shop_Name" />
+      <PropertyRef Name="Shopkeeper_Name" />
+      <PropertyRef Name="Shop_Address" />
+      <PropertyRef Name="Shopkeeper_Refference" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Shop_Logo" />
+      <PropertyRef Name="Catagory" />
+    </Key>
+    <Property Name="Shop_Id" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Shop_Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Shopkeeper_Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Shop_Address" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Shopkeeper_Refference" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="Shop_Logo" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Catagory" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="myprojectModelStoreContainer">
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="brand" EntityType="Self.brand" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [brand].[Brand_Id] AS [Brand_Id], 
+    [brand].[Brand_Name] AS [Brand_Name], 
+    [brand].[Brand_Discription] AS [Brand_Discription], 
+    [brand].[Brand_Logo] AS [Brand_Logo]
+    FROM [dbo].[brand] AS [brand]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="cart" EntityType="Self.cart" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [cart].[Cart_ID] AS [Cart_ID], 
+    [cart].[Cart_Type] AS [Cart_Type], 
+    [cart].[Product_ID] AS [Product_ID], 
+    [cart].[Product_Des] AS [Product_Des], 
+    [cart].[Date_Time] AS [Date_Time], 
+    [cart].[User_ID] AS [User_ID], 
+    [cart].[Quantity] AS [Quantity]
+    FROM [dbo].[cart] AS [cart]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="orders" EntityType="Self.orders" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [orders].[Pro_ID] AS [Pro_ID], 
+    [orders].[Quantity] AS [Quantity], 
+    [orders].[Cust_ID] AS [Cust_ID], 
+    [orders].[Status] AS [Status], 
+    [orders].[Date_Time] AS [Date_Time]
+    FROM [dbo].[orders] AS [orders]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="product" EntityType="Self.product" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [product].[ID] AS [ID], 
+    [product].[Name] AS [Name], 
+    [product].[Category] AS [Category], 
+    [product].[Brand] AS [Brand], 
+    [product].[Place] AS [Place], 
+    [product].[Price] AS [Price], 
+    [product].[Status] AS [Status], 
+    [product].[DateTime] AS [DateTime], 
+    [product].[Des] AS [Des]
+    FROM [dbo].[product] AS [product]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="product_detail" EntityType="Self.product_detail" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [product_detail].[PD_ID] AS [PD_ID], 
+    [product_detail].[Pro_ID] AS [Pro_ID], 
+    [product_detail].[Detail_Type] AS [Detail_Type], 
+    [product_detail].[PD_Name] AS [PD_Name], 
+    [product_detail].[PD_Value] AS [PD_Value]
+    FROM [dbo].[product_detail] AS [product_detail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="shop_vendor" EntityType="Self.shop_vendor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [shop_vendor].[Shop_Id] AS [Shop_Id], 
+    [shop_vendor].[Shop_Name] AS [Shop_Name], 
+    [shop_vendor].[Shopkeeper_Name] AS [Shopkeeper_Name], 
+    [shop_vendor].[Shop_Address] AS [Shop_Address], 
+    [shop_vendor].[Shopkeeper_Refference] AS [Shopkeeper_Refference], 
+    [shop_vendor].[Status] AS [Status], 
+    [shop_vendor].[Description] AS [Description], 
+    [shop_vendor].[Shop_Logo] AS [Shop_Logo], 
+    [shop_vendor].[Catagory] AS [Catagory]
+    FROM [dbo].[shop_vendor] AS [shop_vendor]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

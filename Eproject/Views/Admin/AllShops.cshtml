@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Eproject.Models.shop_vendor>
+
+@{
+    ViewBag.Title = "AllShops";
+    Layout = "~/Views/Shared/Admin/Body.cshtml";
+}
+
+
+
+<div class="women_main">
+    <!-- start content -->
+
+    <div class="w_content">
+        
+        <!-- grids_of_4 -->
+        <div class="row">
+
+            @foreach (var item in @Model)
+            {
+            <div class="grid1_of_4">
+                <div class="content_box">
+                    <a href="@Url.Action("Shop", "Admin", new { id=@item.Shop_Id})">
+                        <img src="@Url.Content(@item.Shop_Logo)" class="img-responsive" alt="@item.Shop_Name"/>
+                        
+                    </a>
+                    
+                    <h4><a href="#"> @item.Shop_Name</a></h4>
+                    <p>@item.Shop_Address</p>
+                    <div class="grid_1 simpleCart_shelfItem">
+
+                        <div class="item_add"><span class="item_price"><h6>@item.Shopkeeper_Name</h6></span></div>
+                        <div class="item_add"><span class="item_price"><a href="@Url.Action("UpdateShop", "Admin", new { id=@item.Shop_Id})">Change</a></span></div>
+                    </div>
+                </div>
+            </div>    
+            }
+            
+            
+        </div>
+
+
+
+    </div>
+    <div class="clearfix"></div>
+   
+</div>

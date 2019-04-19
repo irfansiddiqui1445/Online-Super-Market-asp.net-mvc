@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="myprojectModelStoreContainer" CdmEntityContainer="myprojectEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="myprojectModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Des" ColumnName="Des" />
+          <ScalarProperty Name="IsSubID" ColumnName="IsSubID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="brands">
+      <EntityTypeMapping TypeName="myprojectModel.brand">
+        <MappingFragment StoreEntitySet="brand">
+          <ScalarProperty Name="Brand_Id" ColumnName="Brand_Id" />
+          <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
+          <ScalarProperty Name="Brand_Discription" ColumnName="Brand_Discription" />
+          <ScalarProperty Name="Brand_Logo" ColumnName="Brand_Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carts">
+      <EntityTypeMapping TypeName="myprojectModel.cart">
+        <MappingFragment StoreEntitySet="cart">
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+          <ScalarProperty Name="Cart_Type" ColumnName="Cart_Type" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Product_Des" ColumnName="Product_Des" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="myprojectModel.order">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="Pro_ID" ColumnName="Pro_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="myprojectModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Des" ColumnName="Des" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product_detail">
+      <EntityTypeMapping TypeName="myprojectModel.product_detail">
+        <MappingFragment StoreEntitySet="product_detail">
+          <ScalarProperty Name="PD_ID" ColumnName="PD_ID" />
+          <ScalarProperty Name="Pro_ID" ColumnName="Pro_ID" />
+          <ScalarProperty Name="Detail_Type" ColumnName="Detail_Type" />
+          <ScalarProperty Name="PD_Name" ColumnName="PD_Name" />
+          <ScalarProperty Name="PD_Value" ColumnName="PD_Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shop_vendor">
+      <EntityTypeMapping TypeName="myprojectModel.shop_vendor">
+        <MappingFragment StoreEntitySet="shop_vendor">
+          <ScalarProperty Name="Shop_Id" ColumnName="Shop_Id" />
+          <ScalarProperty Name="Shop_Name" ColumnName="Shop_Name" />
+          <ScalarProperty Name="Shopkeeper_Name" ColumnName="Shopkeeper_Name" />
+          <ScalarProperty Name="Shop_Address" ColumnName="Shop_Address" />
+          <ScalarProperty Name="Shopkeeper_Refference" ColumnName="Shopkeeper_Refference" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Shop_Logo" ColumnName="Shop_Logo" />
+          <ScalarProperty Name="Catagory" ColumnName="Catagory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,45 @@
+﻿@model Eproject.Models.shop_vendor
+
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/Admin/Body.cshtml";
+}
+<div class="women_main">
+    <!-- start content -->
+    <div class="row single">
+        <div class="det">
+            <div class="single_left">
+                <div class="grid images_3_of_2">
+                    <img src="@Model.Shop_Logo" class="images_3_of_2" style="width:100%;height:100%" />
+                </div>
+                <div class="desc1 span_3_of_2">
+                    <h3>@Model.Shop_Name</h3>
+                  
+                    
+                    
+                    <br />
+                    <span class="brand">Category: <a href="#">@Model.Catagory </a></span>
+                    <br>
+                    
+                    <div class="price">
+                        <span class="text">Address:</span>
+                        <span class="price-new">@Model.Shop_Address</span>
+
+                    </div>
+                    <p>@Model.Description</p>
+                    <div class="btn_form">
+                        <a href="@Url.Action("UpdateShop", "Admin", new { id=@Model.Shop_Id})">Change</a>
+                    </div>
+                    <a href="@Url.Action("DeleteShop", "Admin", new  { id=@Model.Shop_Id})"><span>Delete This Shop </span></a>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- end content -->
+
+
+</div>

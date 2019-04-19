@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Eproject.Models.shop_vendor>
+
+@{
+    
+    Layout = "~/Views/Shared/Body.cshtml";
+}
+
+
+@Html.Partial("TopBanner")
+<!--content-->
+<div class="product">
+    <div class="container">
+        <div class="col-md-9">
+            <div class="mid-popular">
+
+
+
+
+                @foreach (var item in @Model)
+                {
+
+
+                    <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+                        <div class=" mid-pop">
+                            <div class="pro-img">
+                                <img src="@Url.Content(@item.Shop_Logo)" class="img-responsive" alt="@item.">
+                                <div class="zoom-icon ">
+                                    <a class="picture" href="@Url.Action("Shop", "Store", new { id=@item.Shop_Id})" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                    <a href="@Url.Action("Shop", "Store", new { id=@item.Shop_Id})"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                </div>
+                            </div>
+                            <div class="mid-1">
+                                <div class="women">
+                                    <div class="women-top">
+                                        <span>
+                                            @{
+                    Eproject.Models.DataModel dm = new Eproject.Models.DataModel();
+                    Eproject.Models.catagory b = dm.catagories.Single(x => x.Cat_ID == @item.Catagory);
+                                            }
+                                            @b.Name
+                                        </span>
+                                        <h6><a href="@Url.Action("Shop", "Store", new { id=@item.Shop_Id})">@item.Shop_Name</a></h6>
+                                    </div>
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="mid-2">
+                                    <p>@item.Description</p>
+                                    <div class="block">
+                                        
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+
+
+
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        @Html.Partial("Aside")
+        <div class="clearfix"></div>
+    </div>
+    <!--products-->
+    <!--//products-->
+    <!--brand-->
+    @Html.Partial("SideBrands")
+    <!--//brand-->
+
+
+</div>
+
+

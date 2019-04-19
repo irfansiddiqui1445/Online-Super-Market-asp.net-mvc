@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Eproject.Models.cart>
+@{
+    Layout = "~/Views/Shared/Body.cshtml";
+     bool isCart=true;
+     int nt =0;
+}
+
+@Html.Partial("TopBanner")
+<!--login-->
+<script>
+$(document).ready(function(c) {
+					$('.close1').on('click', function(c){
+						$('.cart-header').fadeOut('slow', function(c){
+							$('.cart-header').remove();
+						});
+						});
+					});
+</script>
+<script>
+$(document).ready(function(c) {
+					$('.close2').on('click', function(c){
+						$('.cart-header1').fadeOut('slow', function(c){
+							$('.cart-header1').remove();
+						});
+						});
+					});
+</script>
+<script>
+$(document).ready(function(c) {
+					$('.close3').on('click', function(c){
+						$('.cart-header2').fadeOut('slow', function(c){
+							$('.cart-header2').remove();
+						});
+						});
+					});
+</script>
+<div class="check-out">
+    <div class="container">
+
+        <div class="bs-example4" data-example-id="simple-responsive-table">
+            <div class="table-responsive">
+                <table class="table-heading simpleCart_shelfItem">
+                   @if (isCart == true)
+                   {
+                    <tr>
+                        <th class="table-grid">Item</th>
+
+                        <th>Prices</th>
+                        <th>Quantity </th>
+                        <th>Subtotal</th>
+                    </tr>
+                   }
+                     
+                    @foreach (var item in @Model)
+                    {
+
+                        if (@Model==null)
+                        {
+                            isCart = false;
+                        }
+                        <tr class="cart-header">
+
+                            <td class="ring-in">
+                                @{
+
+                        Eproject.Models.DataModel dm = new Eproject.Models.DataModel();
+                        Eproject.Models.product p = dm.products.Single(x => x.Pro_ID == item.Product_ID);
+                        }
+                                <a href="single.html" class="at-in"><img src="@Url.Content(p.Image)" class="img-responsive" alt=""></a>
+                                <div class="sed">
+                                    <h5><a href=""> @p.Pro_Name</a></h5>
+                                    <p>@p.Des </p>
+
+                                </div>
+                                <div class="clearfix"> </div>
+
+                            </td>
+                            <td>Rs : @p.Price</td>
+                            <td>@item.Quantity</td>
+                            <td class="item_price">@{var a = Convert.ToInt32(p.Price)*Convert.ToInt32(item. Quantity);}
+                            Rs : @a</td>
+                            @{nt = nt + a; }
+                            <td class="add-check"><a class="item_add hvr-skew-backward" href="@Url.Action("DeleteCart", "Store", new { id=item.Cart_ID})">Delete Item</a></td>
+                        </tr>
+                    }
+
+                    @if (isCart == true)
+                    {
+                        <tr class="cart-header">
+
+                            <td></td>
+                            <td></td>
+                            <td><b style="color:black">Total Amount  :</b></td>
+                            <td>Rs : @nt.ToString()</td>
+                            <td>
+                                <div class="produced">
+                                    <a href="" class="hvr-skew-backward" style="background-color:blueviolet">Order Now</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <h1 class="col-lg-push-6">There is No Data In Your cart</h1>
+                    }
+                    
+
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!--//login-->
+<!--brand-->
+@Html.Partial("SideBrands")
+<!--//brand-->
+<!--//content-->

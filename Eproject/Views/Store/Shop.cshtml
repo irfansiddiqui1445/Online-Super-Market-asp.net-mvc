@@ -1,0 +1,56 @@
+﻿@model Eproject.Models.shop_vendor
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/Body.cshtml";
+}
+
+
+
+@Html.Partial("TopBanner")
+<div class="single">
+
+    <div class="container">
+        <div class="col-md-9">
+            <div class="col-md-5 grid">
+                <div class="flexslider">
+                    <img src="@Url.Content(@Model.Shop_Logo)" data-imagezoom="true" class="img-responsive"> 
+                </div>
+            </div>
+            <div class="col-md-7 single-top-in">
+                <div class="span_2_of_a1 simpleCart_shelfItem">
+                    <h3>@Model.Shop_Name</h3>
+                    <p class="in-para"> @Model.Shop_Address</p>
+                    <div class="price_single">
+                        <span class="reducedfrom item_price">@ViewBag.cat</span>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                    <h4 class="quick">Shopkeeper : @Model.Shopkeeper_Name</h4>
+                    <p class="quick_desc"> @Model.Description</p>
+                    <div class="wish-list">
+                        <ul>
+                            <li class="wish"><a href="#"><span class="glyphicon glyphicon-check" aria-hidden="true"></span>View Products</a></li>
+                            
+                        </ul>
+                    </div>
+              
+                    <div class="clearfix"> </div>
+                </div>
+
+            </div>
+            <div class="clearfix"> </div>
+            <!---->
+            
+            <!---->
+        </div>
+        <!----->
+        @Html.Partial("Aside")
+        <div class="clearfix"> </div>
+    </div>
+
+    <!--brand-->
+    @Html.Partial("SideBrands")
+    <!--//brand-->
+</div>
+
+

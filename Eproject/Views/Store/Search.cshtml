@@ -1,0 +1,220 @@
+﻿@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/Body.cshtml";
+}
+<div class="product">
+    <div class="container">
+        <div class="col-md-9">
+            
+            
+        
+
+
+            @if (ViewBag.by.ToString() != "no")
+            {
+                <h1>Products </h1>
+                <div class="mid-popular">
+                    
+                    @foreach (var item in ViewBag.by)
+                    {
+                    <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+                        <div class=" mid-pop">
+                            <div class="pro-img">
+                                <img src="@Url.Content(@item.Image)" class="img-responsive" alt="@item.Pro_Name">
+                                <div class="zoom-icon ">
+                                    <a class="picture" href="@Url.Action("Product", "Store", new { id=@item.Pro_ID})" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                    <a href="@Url.Action("Product", "Store", new { id=@item.Pro_ID})"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                </div>
+                            </div>
+                            <div class="mid-1">
+                                <div class="women">
+                                    <div class="women-top">
+                                        <span>
+                                            @{
+                    Eproject.Models.DataModel dm = new Eproject.Models.DataModel();
+                    Eproject.Models.brand bb = new Eproject.Models.brand();
+                    bb.Brand_Id = item.Brand;
+                    Eproject.Models.brand b = dm.brands.Single(x => x.Brand_Id == bb.Brand_Id);
+                                            }
+                                            @b.Brand_Name
+                                        </span>
+                                        <h6><a href="@Url.Action("Product", "Store", new { id=@item.Pro_ID})">@item.Pro_Name</a></h6>
+                                    </div>
+                                    <div class="img item_add">
+                                        <a href="@Url.Action("Product", "Store", new { id=@item.Pro_ID})"><img src="~/Libs/Store/images/ca.png" alt=""></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="mid-2">
+                                    <p><em class="item_price">Rs : @item.Price</em></p>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    }
+                    <div class="clearfix"></div>
+                </div>
+            }
+            else
+            {
+
+
+
+
+
+
+
+
+                if (ViewBag.product.ToString() != "no")
+                {
+                    <h1>Products </h1>
+                    <div class="mid-popular">
+                       
+                        @foreach (var item in ViewBag.product)
+                        {
+                            <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+                                <div class=" mid-pop">
+                                    <div class="pro-img">
+                                        <img src="@Url.Content(@item.Image)" class="img-responsive" alt="@item.Pro_Name">
+                                        <div class="zoom-icon ">
+                                            <a class="picture" href="@Url.Action("Product", "Store", new { id=@item.Pro_ID})" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                            <a href="@Url.Action("Product", "Store", new { id=@item.Pro_ID})"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="mid-1">
+                                        <div class="women">
+                                            <div class="women-top">
+                                                <span>
+                                                    @{
+                            Eproject.Models.DataModel dm = new Eproject.Models.DataModel();
+                            Eproject.Models.brand bb = new Eproject.Models.brand();
+                            bb.Brand_Id = item.Brand;
+                            Eproject.Models.brand b = dm.brands.Single(x => x.Brand_Id == bb.Brand_Id);
+                                                    }
+                                                    @b.Brand_Name
+                                                </span>
+                                                <h6><a href="@Url.Action("Product", "Store", new { id=@item.Pro_ID})">@item.Pro_Name</a></h6>
+                                            </div>
+                                            <div class="img item_add">
+                                                <a href="@Url.Action("Product", "Store", new { id=@item.Pro_ID})"><img src="~/Libs/Store/images/ca.png" alt=""></a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="mid-2">
+                                            <p><em class="item_price">Rs : @item.Price</em></p>
+                                            <div class="block">
+                                                <div class="starbox small ghosting"> </div>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="clearfix"></div>
+                    </div>
+
+                }
+                else if (ViewBag.product.ToString() == "no")
+                {
+                    <h1>No Products Found</h1>
+                    <br /><br /><br />
+                }
+                
+                
+                if (ViewBag.shop.ToString() != "no")
+                {
+                    <h1>Shop | Store </h1>
+    <div class="mid-popular">
+
+
+
+
+        @foreach (var item in ViewBag.shop)
+        {
+
+
+            <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+                <div class=" mid-pop">
+                    <div class="pro-img">
+                        <img src="@Url.Content(@item.Shop_Logo)" class="img-responsive" alt="@item.">
+                        <div class="zoom-icon ">
+                            <a class="picture" href="@Url.Action("Shop", "Store", new { id=@item.Shop_Id})" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                            <a href="@Url.Action("Shop", "Store", new { id=@item.Shop_Id})"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                        </div>
+                    </div>
+                    <div class="mid-1">
+                        <div class="women">
+                            <div class="women-top">
+                                <span>
+                                    @{
+            Eproject.Models.DataModel dm = new Eproject.Models.DataModel();
+            Eproject.Models.catagory bb = new Eproject.Models.catagory();
+            bb.Cat_ID = @item.Catagory;
+            Eproject.Models.catagory b = dm.catagories.Single(x => x.Cat_ID == bb.Cat_ID);
+                                    }
+                                    @b.Name
+                                </span>
+                                <h6><a href="@Url.Action("Shop", "Store", new { id=@item.Shop_Id})">@item.Shop_Name</a></h6>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="mid-2">
+                            <p>@item.Description</p>
+                            <div class="block">
+
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+
+
+
+
+        <div class="clearfix"></div>
+    </div>
+
+                }
+                else if (ViewBag.shop.ToString() == "no")
+                {
+                    <h1>No Shop | Store Found</h1>
+                    <br /><br /><br />
+                }
+
+            
+ 
+                 
+                 
+                 
+            }
+
+        </div>
+          
+        @Html.Partial("Aside")
+        <div class="clearfix"></div>
+    </div>
+    <!--products-->
+    <!--//products-->
+    <!--brand-->
+    @Html.Partial("SideBrands")
+    <!--//brand-->
+
+
+</div>

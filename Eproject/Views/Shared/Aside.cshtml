@@ -1,0 +1,64 @@
+﻿@{
+    Eproject.Models.DataModel dm = new Eproject.Models.DataModel();
+    List<Eproject.Models.catagory>  cat =  dm.catagories.ToList();
+    List<Eproject.Models.brand> brand = dm.brands.ToList();
+    List<Eproject.Models.shop_vendor> shop = dm.shop_vendor.ToList();
+}
+
+
+<div class="col-md-3 product-bottom">
+    <!--categories-->
+    <div class=" rsidebar span_1_of_left">
+        <h4 class="cate">Categories</h4>
+
+        <ul class="menu-drop">
+
+            <li class="item1">
+                @foreach (var item in cat)
+                {
+                    <a href="@Url.Action("Search", "Store", new { keyword=item.Cat_ID,by="Cat" })">@item.Name </a>
+                }
+                
+                
+            </li>
+          
+        </ul>
+
+        <h4 class="cate">Brands</h4>
+
+        <ul class="menu-drop">
+
+            <li class="item1">
+                @foreach (var item in brand)
+                {
+                    <a href="@Url.Action("Search", "Store", new { keyword=item.Brand_Id,by="Brand" })">@item.Brand_Name </a>
+                }
+
+
+            </li>
+
+        </ul>
+
+
+        <h4 class="cate">Shops</h4>
+
+        <ul class="menu-drop">
+
+            <li class="item1">
+    @foreach (var item in shop)
+    {
+
+        <a href="@Url.Action("Search", "Store", new { keyword=item.Shop_Id,by="Shop" })">@item.Shop_Name </a>
+
+    }
+                </li>
+
+
+            
+
+        </ul>
+
+    </div>
+
+
+</div>

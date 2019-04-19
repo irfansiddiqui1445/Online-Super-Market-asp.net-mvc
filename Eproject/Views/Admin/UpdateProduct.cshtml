@@ -1,0 +1,117 @@
+﻿@model Eproject.Models.product
+
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Views/Shared/Admin/Body.cshtml";
+}
+
+
+<div class="panel panel-widget forms-panel">
+    <div class="progressbar-heading general-heading">
+        <h4>Update Product:</h4>
+    </div>
+    <div class="forms">
+        <h3 class="title1"></h3>
+        <div class="form-three widget-shadow">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="@Url.Action("UpdateProduct","Admin")">
+              
+                  <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Product Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1" name="Pro_Name" placeholder="Name" value="@Model.Pro_Name">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="inputPassword" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control1" name="Des" placeholder="Description">@Model.Des</textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Catogary</label>
+                    <div class="col-sm-8">
+                        <select name="Catogary" class="form-control1">
+
+                            <option value="@Model.Catogary" selected>
+                            @foreach (var item in ViewBag.currentcat)
+                            {@item.Name}
+                             
+                            </option>
+
+                            @foreach (var item in ViewBag.catlist)
+                            {
+                                <option value="@item.Cat_ID" >@item.Name</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+               
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Brand</label>
+                    <div class="col-sm-8">
+                        <select name="Brand" class="form-control1">
+
+                            <option value="@Model.Brand" selected>
+                            @foreach (var item in ViewBag.currentbrand)
+                            {@item.Brand_Name}</option>
+                            @foreach (var item in ViewBag.brandlist)
+                            {
+                                <option value="@item.Brand_Id" >@item.Brand_Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Shop</label>
+                    <div class="col-sm-8">
+                        <select name="Shop" class="form-control1">
+
+                            <option value="@Model.Shop" selected>@foreach (var item in ViewBag.currentshop){@item.Shop_Name} </option>
+                            @foreach (var item in ViewBag.shoplist)
+                            {
+                                <option value="@item.Shop_Id">@item.Shop_Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Product price</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1" value="@Model.Price" name="Price" placeholder="Default Input">
+                    </div>
+
+                </div>
+
+                <input type="hidden" name="Image" value="@Model.Image" />
+                <input type="hidden" name="Date_Time" value="@Model.Date_Time" />
+                <input type="hidden" name="Status" value="A" />
+                <input type="hidden" name="Pro_ID" value="@Model.Pro_ID" />
+
+
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Select Image</label>
+                    <div class="col-sm-8">
+                        <input type="file" class="form-control1" name="ProductImage" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <input type="submit" value="Update Product" class="form-control1" />
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

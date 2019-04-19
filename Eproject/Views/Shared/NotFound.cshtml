@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/Body.cshtml";
+}
+<!--banner-->
+<div class="banner-top">
+    <div class="container">
+        <h1>404</h1>
+        <em></em>
+        <h2><a href="@Url.Action("Welcome","Store")">Home</a><label>/</label>404</h2>
+    </div>
+</div>
+<!--login-->
+<div class="container">
+    <div class="four">
+        <h3>404</h3>
+        <p>Sorry! Thee Resource Or Page You Trying Reach Is Not Found .</p>
+        <a href="@Url.Action("Welcome","Store")" class="hvr-skew-backward">Back To Home</a>
+    </div>
+</div>
+<!--//login-->

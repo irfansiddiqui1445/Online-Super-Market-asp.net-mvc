@@ -1,0 +1,39 @@
+﻿@model Eproject.Models.brand
+
+@{
+    ViewBag.Title = "UpdateBrand";
+    Layout = "~/Views/Shared/Admin/Body.cshtml";
+}
+
+<div class="progressbar-heading grids-heading">
+
+</div>
+<div class="panel panel-widget forms-panel">
+    <div class="forms">
+        <div class="form-grids widget-shadow" data-example-id="basic-forms">
+            <div class="form-title">
+                <h4>Update Brand :</h4>
+            </div>
+            <div class="form-body">
+                <form method="post" action="@Url.Action("UpdateBrand", "Admin")">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name :</label>
+                        <input type="text" class="form-control" name="Brand_Name" value="@Model.Brand_Name" placeholder="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Select Image :</label>
+                        <input type="text" class="form-control" name="Brand_Logo" value="@Model.Brand_Logo" placeholder="Image" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Description :</label>
+                        <textarea class="form-control" name="Brand_Discription" rows="5">@Model.Brand_Discription</textarea>
+                    </div>
+                    <input type="hidden" name="Brand_Id" value="@Model.Brand_Id" />
+
+
+                    <button type="submit" class="btn btn-default">Update Brand</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+﻿@{
+    
+    Layout = "~/Views/Shared/Body.cshtml";
+    
+string path = Path.GetRandomFileName();
+path = path.Replace(".", "");
+var uid = Session["User_ID"];
+
+}
+
+@model Eproject.Models.product
+
+
+@Html.Partial("TopBanner")
+<div class="single">
+
+    <div class="container">
+        <div class="col-md-9">
+            <div class="col-md-5 grid">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li data-thumb="~/Libs/Store/images/si.jpg">
+                            <div class="thumb-image"> <img src="@Url.Content(@Model.Image)" data-imagezoom="true" class="img-responsive"> </div>
+                        </li>
+                      
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7 single-top-in">
+                <div class="span_2_of_a1 simpleCart_shelfItem">
+                    <h3>@Model.Pro_Name</h3>
+                    
+                    <div class="price_single">
+                        <span class="reducedfrom item_price">Price    :   </span>
+                        <span class="reducedfrom item_price">@Model.Price</span>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                    <h4 class="quick">Quick Overview:</h4>
+                    <p class="quick_desc">@Model.Des</p>
+                    <div class="wish-list">
+                        <ul>
+                            <li class="wish"><a href="#" style="text-decoration:none"><span class="" aria-hidden="true"></span>Shop : @ViewBag.shop</a></li>
+                        </ul>
+                        <ul>
+                                         <li class="wish">
+                            <a href="#" style="text-decoration:none"><span class="" aria-hidden="true"></span>Category : @ViewBag.cat</a></li>
+                        </ul>
+                        <ul>
+                             <li class="wish"><a href="#" style="text-decoration:none"><span class="" aria-hidden="true"></span>Brand : @ViewBag.brand</a></li>
+                            </ul>
+                        <ul>
+                            <li class="wish"><a href="@Url.Action("AddtoCart", "Store", new { 
+                                                     Cart_ID = path,
+                                                     Product_ID = @Model.Pro_ID,
+                                                     Date_Time = DateTime.Now.ToString(),
+                                                     User_ID =  uid,
+                                                     Quantity = "1"})"><span class="glyphicon glyphicon-check" aria-hidden="true"></span>Add To Cart</a></li>
+                        </ul>
+                    </div>
+                    
+                 
+
+                    
+                    <div class="clearfix"> </div>
+                </div>
+
+            </div>
+            <div class="clearfix"> </div>
+            <!---->
+            
+            <!---->
+        </div>
+        <!----->
+
+        @Html.Partial("Aside")
+        <div class="clearfix"> </div>
+    </div>
+
+    <!--brand-->
+    @Html.Partial("SideBrands")
+    <!--//brand-->
+</div>	
+
+
+<script src="~/Libs/Store/js/jquery.flexslider.js"></script>
+<script src="~/Libs/Store/js/imagezoom.js"></script>
+<link rel="stylesheet" href="~/Libs/Store/css/flexslider.css" type="text/css" media="screen" />
+
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

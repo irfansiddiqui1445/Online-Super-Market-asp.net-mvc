@@ -1,0 +1,66 @@
+﻿@model Eproject.Models.shop_vendor
+
+
+@{
+    ViewBag.Title = "UpdateShop";
+    Layout = "~/Views/Shared/Admin/Body.cshtml";
+}
+
+<div class="panel panel-widget forms-panel">
+    <div class="forms">
+        <div class="form-grids widget-shadow" data-example-id="basic-forms">
+            <div class="form-title">
+                <h4>Update Shop Info :</h4>
+            </div>
+            <div class="form-body">
+                <form method="post" action="@Url.Action("UpdateShop","Admin")" enctype="multipart/form-data"> 
+
+                  <div class="form-group"> 
+                    <label for="exampleInputEmail1">Shop_Name:</label>
+                     <input value="@Model.Shop_Name" type="text" name="Shop_Name" class="form-control"  placeholder="Name Title">
+                     </div>
+
+                 <div class="form-group">
+                      <label for="exampleInputPassword1">Shopkeeper Name;</label>
+                     <input value="@Model.Shopkeeper_Name" type="text" class="form-control" placeholder="Shopkeeper Name" name="Shopkeeper_Name">
+                     </div>
+
+                    
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Shop Address</label>
+                        <input value="@Model.Shop_Address" type="text" class="form-control" name="Shop_Address" placeholder="Shop Address">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Description</label>
+                        <textarea name="Description" class="form-control">@Model.Description</textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Catagory</label>
+                        <select class="form-control" name="Catagory">
+                            <option selected value="@ViewBag.cat.Cat_ID">@ViewBag.cat.Name</option>
+                            @foreach (var item in @ViewBag.catlist)
+                            {
+                                <option value="@item.Cat_ID">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <input type="hidden" name="Shop_Logo" value="@Model.Shop_Logo"/>
+                    <input type="hidden" name="Shop_Id" value="@Model.Shop_Id" />
+                    <input type="hidden" name="Shopkeeper_Refference_ID" value="@Model.Shopkeeper_Refference_ID" />
+                    
+                    <div class="form-group">
+                     <label for="exampleInputFile">Select Image</label> 
+                     <input type="file" class="form-control" name="Shop_Logo_File"> 
+                   
+                     </div> 
+                 
+                <input type="submit" class="btn btn-default" value="Update"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
